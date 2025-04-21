@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+     }
+
+      .first {
+        width: 400px;
+        margin: auto;
+        height: 400px;
+      }          
+
+      input {
+        height: 120px;
+        width: 120px;
+        margin: 5px 5px;
+        border: none;
+        font-size: 50px;
+        color:black;
+        background-color:goldenrod;
+       
+      }
+      #out{
+        text-align: center ;
+        color: brown;
+        font-size: 50px;
+      }
+
+
+    </style>
+    <div class="container">
+      <div class="box">
+        <div class="first">
+          <input type="button" id="btn1" onclick="enter('btn1')" />
+          <input type="button" id="btn2" onclick="enter('btn2')" />
+          <input type="button" id="btn3" onclick="enter('btn3')" />
+          <input type="button" id="btn4" onclick="enter('btn4')" />
+          <input type="button" id="btn5" onclick="enter('btn5')" />
+          <input type="button" id="btn6" onclick="enter('btn6')" />
+          <input type="button" id="btn7" onclick="enter('btn7')" />
+          <input type="button" id="btn8" onclick="enter('btn8')" />
+          <input type="button" id="btn9" onclick="enter('btn9')" />
+        </div>
+      </div>
+      <h2 id="out"></h2>
+    </div>
+  </body>
+  <script>
+    cnt = 1;
+    var player = 1;
+
+    function enter(type) {
+      if (player % 2 != 0) {
+        document.getElementById(type).value = "O";
+      } else {
+        document.getElementById(type).value = "X";
+        // player = 0;
+      }
+      player++;
+
+      //condition  buttons
+
+      const btn1 = document.getElementById("btn1").value;
+      const btn2 = document.getElementById("btn2").value;
+      const btn3 = document.getElementById("btn3").value;
+      const btn4 = document.getElementById("btn4").value;
+      const btn5 = document.getElementById("btn5").value;
+      const btn6 = document.getElementById("btn6").value;
+      const btn7 = document.getElementById("btn7").value;
+      const btn8 = document.getElementById("btn8").value;
+      const btn9 = document.getElementById("btn9").value;
+
+      // button disable
+      if (type == "btn1") {
+        document.getElementById("btn1").disabled = true;
+      } else if (type == "btn2") {
+        document.getElementById("btn2").disabled = true;
+      } else if (type == "btn3") {
+        document.getElementById("btn3").disabled = true;
+      } else if (type == "btn4") {
+        document.getElementById("btn4").disabled = true;
+      } else if (type == "btn5") {
+        document.getElementById("btn5").disabled = true;
+      } else if (type == "btn6") {
+        document.getElementById("btn6").disabled = true;
+      } else if (type == "btn7") {
+        document.getElementById("btn7").disabled = true;
+      } else if (type == "btn8") {
+        document.getElementById("btn8").disabled = true;
+      } else if (type == "btn9") {
+        document.getElementById("btn9").disabled = true;
+      }
+
+      // condition X
+      if (btn1 == "X" && btn2 == "X" && btn3 == "X") {
+        document.getElementById("out").innerText = "X won the match";
+      } else if (btn4 == "X" && btn5 == "X" && btn6 == "X") {
+        document.getElementById("out").innerText = "X won the match";
+      } else if (btn7 == "X" && btn8 == "X" && btn9 == "X") {
+        document.getElementById("out").innerText = "X won the match";
+
+} else if (btn1 == "X" && btn4 == "X" && btn7 == "X") {
+        document.getElementById("out").innerText = "X won the match";
+      } else if (btn2 == "X" && btn5 == "X" && btn8 == "X") {
+        document.getElementById("out").innerText = "X won the match";
+      } else if (btn3 == "X" && btn6 == "X" && btn9 == "X") {
+        document.getElementById("out").innerText = "X won the match";
+      } else if (btn1 == "X" && btn5 == "X" && btn9 == "X") {
+        document.getElementById("out").innerText = "X won the match";
+      } else if (btn3 == "X" && btn5 == "X" && btn7 == "X") {
+        document.getElementById("out").innerText = "X won the match";
+      }
+      // condition  O
+
+      if (btn1 == "O" && btn2 == "O" && btn3 == "O") {
+        document.getElementById("out").innerText = "O won the match";
+      } else if (btn4 == "O" && btn5 == "O" && btn6 == "O") {
+        document.getElementById("out").innerText = "O won the match";
+      } else if (btn7 == "O" && btn8 == "O" && btn9 == "O") {
+        document.getElementById("out").innerText = "O won the match";
+      } else if (btn1 == "O" && btn4 == "O" && btn7 == "O") {
+        document.getElementById("out").innerText = "O won the match";
+      } else if (btn2 == "O" && btn5 == "O" && btn8 == "O") {
+        document.getElementById("out").innerText = "O won the match";
+      } else if (btn3 == "O" && btn6 == "O" && btn9 == "O") {
+        document.getElementById("out").innerText = "O won the match";
+      } else if (btn1 == "O" && btn5 == "O" && btn9 == "O") {
+        document.getElementById("out").innerText = "O won the match";
+      } else if (btn3 == "O" && btn5 == "O" && btn7 == "O") {
+        document.getElementById("out").innerText = "O won the match";
+      }
+
+      //draw condition
+      if (cnt >= 9) {
+        if (
+          btn1.value != "" &&
+          btn2.value != "" &&
+          btn3.value != "" &&
+          btn4.value != "" &&
+          btn5.value != "" &&
+          btn6.value != "" &&
+          btn7.value != "" &&
+          btn8.value != "" &&
+          btn9.value != ""
+        ) {
+          // alert("Match Tie");
+          
+          document.getElementById("out").innerText = "match draw";
+          
+        }
+      }
+      cnt++;
+    }
+  </script>
+</html>
